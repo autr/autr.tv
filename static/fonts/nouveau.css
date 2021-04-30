@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'nouveau';
+    src: url('nouveau.eot');
+    src: url('nouveau.eot?#iefix') format('embedded-opentype'),
+        url('nouveau.woff2') format('woff2'),
+        url('nouveau.woff') format('woff'),
+        url('nouveau.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
