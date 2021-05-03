@@ -1,6 +1,7 @@
 {
   "name": "~TODO~",
   "version": "0.0.1",
+  "engines" : { "node" : ">=0.15" },
   "scripts": {
     "dev": "svelte-kit --port 8888 dev",
     "sass": "node-sass src/global.sass static/global.css -w",
@@ -10,8 +11,8 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.71",
-    "svelte": "^3.29.0",
-    "vite": "^2.1.0"
+    "svelte": "^3.38.1",
+    "vite": "^2.2.4"
   },
   "type": "module",
   "dependencies": {
@@ -21,6 +22,6 @@
     "@sveltejs/adapter-static": "next",
     "cookie": "^0.4.1",
     "dayjs": "^1.10.4",
-    "svelte-preprocess": "^4.7.2"
+    "svelte-preprocess": "^4.7.3"
   }
 }

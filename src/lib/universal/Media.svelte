@@ -66,6 +66,12 @@
 	$: title = file.title
 	$: alt = file.title
 
+	if (prerendering) {
+
+
+		console.log('MEDIA PRERENDERING!!!!!!!')
+	}
+
 
 
 	let width, height, ratio

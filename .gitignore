@@ -5,3 +5,4 @@ node_modules
 /functions
 static/posts/*
 static/assets/*
+pnpm-lock.yaml
