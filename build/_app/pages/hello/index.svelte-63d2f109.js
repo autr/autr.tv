@@ -1,0 +1,1 @@
+import{S as s,i as a,s as t,t as e,d as n,j as r,n as c,f as o}from"../../chunks/vendor-decb6ca3.js";function u(s){let a;return{c(){a=e("HELLO")},l(s){a=n(s,"HELLO")},m(s,t){r(s,a,t)},p:c,i:c,o:c,d(s){s&&o(a)}}}export default class extends s{constructor(s){super(),a(this,s,null,u,t,{})}}
