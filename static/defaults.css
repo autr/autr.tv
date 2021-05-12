@@ -1,4 +1,26 @@
 :root {
+	--bg: hsl( 200, 10%, 8% );
+	--bg-pop: hsl( 200, 10%, 12% );
+	--bg-sink: hsl( 200, 10%, 2% );
+
+	--color: hsl( 200, 10%, 90% );
+	--color-bright: hsl( 200, 10%, 100% );
+	--color-fade: hsl( 200, 10%, 50% );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+	--bg: hsl( 200, 10%, 8% );
+	--bg-pop: hsl( 200, 10%, 12% );
+	--bg-sink: hsl( 200, 10%, 8% );
+
+	--color: hsl( 200, 10%, 90% );
+	--color-bright: hsl( 200, 10%, 100% );
+	--color-fade: hsl( 200, 10%, 50% );
+  }
+}
+
+:root {
 
 	--stroke-width: 1px;
 	--column-spacing: 2em;
@@ -18,13 +40,9 @@
 	--font-size: 13px;
 	--line-height: 1.61803398875em;
 
-	--bg: hsl( 200, 10%, 8% );
-	--bg-pop: hsl( 200, 10%, 12% );
-	--bg-sink: hsl( 200, 10%, 8% );
 
-	--color: hsl( 200, 10%, 90% );
-	--color-bright: hsl( 200, 10%, 100% );
-	--color-fade: hsl( 200, 10%, 50% );
+
+
 
 	--color-success: hsl( 150, 95%, 70% );
 	--color-info: hsl( 200, 95%, 70% );
@@ -56,14 +74,5 @@
 	--code-selector: hsl( 170, 95%, 70% );
 	--code-keyboard: hsl( 260, 95%, 70% );
 	--code-regex: hsl( 300, 95%, 70% );
-
-
-	--bg: hsl( 200, 20%, 95% );
-	--bg-pop: hsl( 0, 10%, 98% );
-	--bg-sink: hsl( 0, 10%, 90% );
-
-	--color: hsl( 200, 10%, 20% );
-	--color-bright: hsl( 200, 10%, 0% );
-	--color-fade: hsl( 200, 10%, 15% );
 
 }

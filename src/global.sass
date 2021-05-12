@@ -1,1 +1,7 @@
-.hello-world 
+html, body 
+    $a: var(--bg)
+    $b: var(--bg-pop)
+
+    // background: repeating-linear-gradient( 0deg, $a 0px, $a 1px, $b 1px, $b 2px ) 
+    background: repeating-linear-gradient( 10deg, $a 0px, $a 2px, $b 2px, $b 3px ) 
+    // background: repeating-linear-gradient( 0deg, $a 0px, $b 2px, $a 4px ) 

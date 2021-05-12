@@ -1,0 +1,2 @@
+html, body {
+  background: repeating-linear-gradient(10deg, var(--bg) 0px, var(--bg) 2px, var(--bg-pop) 2px, var(--bg-pop) 3px); }

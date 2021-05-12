@@ -12,11 +12,17 @@
 	const menu = {
 		'Feed': '/feed',
 		'Projects': '/projects',
-		'Code': '/code',
+		// 'About': '/about',
+		// 'Code': '/code',
 		// 'Downloads': '/downloads',
-		'Shop': '/shop',
-		'Hello': 'hello'
+		// 'Shop': '/shop',
+		// 'Hello': 'hello'
 		// 'Links': '/links',
+	}
+
+	const submenu = {
+		'About': '/about',
+
 	}
 
 </script>
@@ -27,12 +33,15 @@
 		<span 
 			class="maxw4em block"
 			style="filter:invert(1);mix-blend-mode:screen;">
-			<!-- <Media file={icon[0]} /> -->
+			<Media file={icon[0]} />
 		</span>
 	</a>
 </h1> 
 <div>{subtitle}</div>
-<div class="flex {orientation} ptb1">
+
+
+
+<div class="flex {orientation} ptb1 cmb1">
 	{#each Object.entries( menu ) as [text, url]}
 		<div>
 			<a 
@@ -42,7 +51,5 @@
 			</a>
 		</div>
 	{/each}
-</div>
-<div>
-	<input type="text" placeholder="Mailing list" />
+	<a class="button text-center" href={`/mailinglist`}>Mailing List</a>
 </div>

@@ -11,7 +11,7 @@
 	export let right = 60
 	export let flip = false
 
-	const columnClasses = 'h100vh overflow-auto grow flex'
+	const columnClasses = 'row-flex-end-stretch h100vh overflow-auto grow flex'
 
 	function set( e, name ) {
 		$scroll[name + 'Top'] = e.target.scrollTop
@@ -24,17 +24,15 @@
 
 
 
-<div class="w100vw h100vh overflow-hidden flex cp2 minw{left + right}em {class_}" style={style_}>
+<div class="w100vw h100vh overflow-hidden cp1 flex minw{left + right}em {class_}" style={style_}>
 	<div 
-		id="left" 
-		class="row-flex-end-flex-start {columnClasses}"
+		class="{columnClasses}"
 		on:scroll={ e => set( e, 'left') }>
-		<header class="w{left_}em maxw{left_}em flex column">
+		<div class="w{left_}em maxw{left_}em flex column">
 			<slot name="left" />
-		</header>
+		</div>
 	</div>
 	<div 
-		id="right" 
 		class={columnClasses} 
 		on:scroll={ e => set( e, 'right') }>
 		<article class="w{right_}em maxw{right_}em justify-self-flex-start">

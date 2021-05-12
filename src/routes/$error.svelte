@@ -1,14 +1,18 @@
 <script>
-export let error
-export let data
+    import Title from '$lib/Title.svelte'
+    import TBA from '$lib/TBA.svelte'
+
+    export let error
+    export let data
 </script>
 
 <div class="cmb1">
-	<div>{error.name}</div>
-	<div>{error.message}</div>
-	<pre class="filled p2 overflow-auto">
+	<Title>{error.name}</Title>
+	<div class="errors">{error.message}</div>
+	<pre class="radius2px filled p2 overflow-auto mb2">
 		<code class="monospace">
 			{error.stack}
 		</code>
 	</pre>
+    <a class="button" href={`../`}>Return to Homepage</a>
 </div>
