@@ -4,6 +4,5 @@ node_modules
 /build/posts/*
 /functions
 static/posts/*
-static/assets/*
 pnpm-lock.yaml
 src/lib/ezelte

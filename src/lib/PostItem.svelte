@@ -21,8 +21,8 @@
 	export let focus // based on scroll
 
 	$: href = `/feed/${utilities.year(created)}/${id}`
-	$: odd = index%2 == 0
-	$: multi = files.length > 1
+	$: odd = true //index%2 == 0
+	$: files_ = files || []
 
 </script>
 
@@ -32,20 +32,24 @@
 	class:row={ !odd }
 	class:row-reverse={ odd}
 	class="flex grow wrap mb10">
-	{#each files as file, idx}
+	{#each files_ as file, idx}
 		<div 
 			class="flex grow" 
-			class:maxw70pc={ files.length <= 2 }
-			class:maxw50pc={ files.length > 2 } >
+			class:maxw70pc={ files_.length <= 2 }
+			class:maxw50pc={ files_.length > 2 } >
 			<a 
-				class="b1-solid flex grow w100pc" 
+				class="flex grow w100pc" 
 				{href} 
 				id={id + '-media'}>
-				<Media {file} paused={!focus} active={!hidden} />
+				<Media 
+					{file} 
+					root="/posts/"
+					paused={!focus} 
+					active={!hidden} />
 			</a>
 		</div>
 	{/each}
-	<div class="flex w30pc column b1-solid">
+	<div class="flex w30pc column">
 		<PostText {id} {title} {text} {created} {updated} {original} {index} />
 	</div>
 </div>

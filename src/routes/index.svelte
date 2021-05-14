@@ -6,5 +6,5 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Autr</title>
 </svelte:head>

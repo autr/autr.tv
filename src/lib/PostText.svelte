@@ -13,11 +13,12 @@
 
 	$: href = `/feed/${utilities.year(created)}/${id}`
 </script>
-<div class="p1 flex column">
-	<a class="unclickable" {href}>
-		<Timestamp date={created} />
+<div class="p4 cmb1 flex column-flex-start-flex-start">
+	<a class="unclickable bb2-solid bt2-solid ptb0-2 flex" {href}>
+		<Timestamp class="uppercase f0 bold" date={created} format="D MMM YYYY" />
 	</a>
-	{title}
-	{text}
-	{original}
+	<div class="f1" >
+		{text}
+		{original}
+	</div>
 </div>

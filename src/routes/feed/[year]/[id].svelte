@@ -1,6 +1,12 @@
 <script context="module">
 	import api from '$lib/api.js'
-	export const load = api.get( params => `http://localhost:3000/api/autr/items/posts/${params.id}?depth=2` )
+	export const load = async ({ fetch, page }) => {
+			const res = await fetch( `http://localhost:3000/api/autr/items/posts/${page?.params?.id}?depth=2`  )
+			let data = (await res.json())
+			if (res.ok) return { props: { data } }
+			const { message } = await res.json()
+			return { error: new Error(message) }
+	}
 </script>
 <script>
 	import LayoutTwoCol from '$lib/universal/LayoutTwoCol.svelte'
@@ -21,7 +27,7 @@
 					<a 
 						class="b1-solid flex grow w100pc"
 						href={file.id}>
-						<!-- {console.log(file, '+++++!')} -->
+						{console.log(file, '+++++!')}
 						<Media 
 							{file} 
 							paused={false}

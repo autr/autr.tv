@@ -1,7 +1,6 @@
 <script context="module">
 	import { amp, browser, dev, prerendering } from '$app/env'
 	import api from '$lib/api.js'
-	import env from '$lib/ezelte/src/env.js'
 
 	export const load = api.get( params => 'http://localhost:3000/api/autr/items/info?depth=1', 0 )
 
@@ -17,10 +16,6 @@
 
 	export let data
 
-	// onMount( async e => {
-	// 	env.set('root', 'http://api.autr.tv')
-	// 	env.set('root', 'http://api.autr.tv')
-	// })
 
 	let layout = 'two-col'
 	layout = 'top-bar'

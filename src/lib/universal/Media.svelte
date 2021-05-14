@@ -5,12 +5,13 @@
 	import { base, assets } from '$app/paths'
 
 	export let file
-	export let format
+	export let format = ''
 	export let active = false
 	export let paused = true
 	export let autoplay = false
 	export let muted = true
 	export let loop = true
+	export let root = null
 
 	let class_ = ""
 	export { class_ as class }
@@ -21,6 +22,13 @@
 	let src, thumb
 	let syncing = false
 
+	const thumbnail = (url, o) => {
+
+		const idx = url.lastIndexOf('.')
+		const out = url.slice( 0, idx ) + `.${o?.width || 0}x${o?.height || 0}x${o?.quality || 80}x${o?.fit || 'cover'}` + url.slice( idx )
+		return out
+	}
+
 	const wait = async ms => ( new Promise(resolve => setTimeout(resolve, ms) ) )
 	async function sync( file_ ) {
 
@@ -29,50 +37,23 @@
 
 			dimensions( file )
 
-			if (!format) format = `${width}x${height}x95`
-
 			const basename = file.basename
-			const location = file.location.name
-			const i = basename.lastIndexOf('.')
-			const name = basename.slice( 0, i )
-			const ext = basename.slice( i )
-			const destination = file.location.destination
-			const ii = destination.lastIndexOf('/')
-			const alt = destination.substring( ii + 1)
-			thumb = '/' + alt + '/' + name + '.' + format + '.jpg'
-			src = '/' + alt + '/' + name  + ext
+			const location = root || '/' + file.location.name + '/'
+			const idx = basename.lastIndexOf('.')
+			const name = basename.slice( 0, idx )
+			const ext = basename.slice( idx )
+
+			console.log(basename, location, idx, name, ext)
+
+			src = location + name + format + ext
+
 		}
 
-		if (file && !browser) {
-			syncing = true
-			try {
-				console.log('[Media.svelte] 🖼  syncing file into folder ->', basename)
-				// const a = await fetch( thumb )
-				// const b = await fetch( src )
-				// console.log(a.ok, b.ok)
-				const og = 'http://localhost:3000/api/autr/files/' + file.id 
-				const trigger = og + '?thumbnail=' + format 
-				await fetch( og )
-				await fetch( trigger )
-
-			} catch( error ) {
-				// console.error('[Media.svelte] 🖼  ', error )
-			}
-			syncing = false 
-		}
 	}
 
 	$: sync( file )
 	$: title = file.title
 	$: alt = file.title
-
-	if (prerendering) {
-
-
-		console.log('MEDIA PRERENDERING!!!!!!!')
-	}
-
-
 
 	let width, height, ratio
 
@@ -108,13 +89,6 @@
 
 	}
 
-	let error = false
-
-	function onError( e ) {
-	}
-	function onLoad( e ) {
-	}
-
 	$: colors = colors_( file )
 
 
@@ -145,7 +119,10 @@
 
 
 <span 
-	class="block rel w100pc {class_}" 
+	class="block rel w100pc {class_}"
+	data-width={width}
+	data-height={height}
+	data-ratio={ratio}
 	style={`
 		${style_};
 		line-height: 0px;
@@ -154,16 +131,14 @@
 	`}>
 		{#if is('image') }
 			<img 
+				class="w100pc h-auto"
 				{width}
 				{height} 
 				{src}
-				class="fill"
-				class:hidden={syncing}
-				on:error={onError} 
-				on:load={onLoad}
 				{title} {alt}  />
 		{:else if is('video')} 
 			<video 
+				class="w100pc h-auto"
 				{width}
 				{height} 
 				{src}
@@ -174,15 +149,6 @@
 				preload="auto"
 				controls={false}
 				poster={thumb}
-				class="fill"
-				class:hidden={syncing}
-				on:error={onError} 
-				on:load={onLoad}
 				{title} {alt}  />
 		{/if}
-		<img 
-			class="hidden w100pc h-auto"
-			{width}
-			{height} 
-			{src}  />
 </span>
