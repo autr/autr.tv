@@ -8,7 +8,7 @@
 	import PostText from '$lib/PostText.svelte'
 
 	export let id
-	export let title
+	export let title    
 	export let text
 	export let files
 	export let created
@@ -22,7 +22,7 @@
 
 	$: href = `/feed/${utilities.year(created)}/${id}`
 	$: odd = true //index%2 == 0
-	$: files_ = files || []
+	$: files_ = files || [] 
 
 </script>
 
@@ -50,6 +50,7 @@
 		</div>
 	{/each}
 	<div class="flex w30pc column">
+		{files_.length}
 		<PostText {id} {title} {text} {created} {updated} {original} {index} />
 	</div>
 </div>

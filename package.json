@@ -16,6 +16,7 @@
     "ezelte": "link:../ezelte",
     "ezipe": "link:../ezipe",
     "fetcheriser": "^1.0.5",
+    "rad-and-cool-light-dark-icon": "link:../rad-and-cool-light-dark-icon",
     "svelte": "^3.38.2",
     "vite": "^2.3.2"
   },
@@ -25,6 +26,7 @@
     "@lukeed/uuid": "^2.0.0",
     "@sveltejs/adapter-static": "1.0.0-next.7",
     "cookie": "^0.4.1",
+    "cross-fetch": "^3.1.4",
     "dayjs": "^1.10.4",
     "svelte-preprocess": "^4.7.3"
   }

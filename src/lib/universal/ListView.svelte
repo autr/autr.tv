@@ -20,7 +20,7 @@
 		// handling $scroll
 
 		if (browser) {
-			if ( scroll_.rightTop > scroll_.rightHeight - (window.innerHeight * 1.5) ) {
+			if ( scroll_.itemsTop > scroll_.itemsHeight - (window.innerHeight * 1.5) ) {
 				const t = new Date()
 				if (t - timestamp > 500) {
 					count += max

@@ -13,40 +13,41 @@
 	export let data
 	const keys = ['id', 'created', 'updated', 'files', 'text', 'title', 'original']
 
-	let lastYear, currentYear
-	function update( p ) {
-		const y = p.params.year
-		if (currentYear == undefined) currentYear = y
-		if ( p.params.id ) currentYear = lastYear
-		lastYear = p.params.year
-	}
-
-	let unsubscribe = page.subscribe( update )
+	$: posts = utilities.posts( data, $page.params.year )
 
 	onMount( async e => {
 	})
-	onDestroy( async e => {
-		if ( unsubscribe ) unsubscribe()
+	onDestroy( async e => { 
 	})
 
 	const href = year => `/feed/${year}`
 </script>
 
-<nav class="cmr1 pb2">
-	{#each utilities.posts( data, $page.params.year ).years as year}
-		<a 
-			class:filled={ $page.path == href(year) || $page.path + '/all' == href( year )}
-			class="p0-6 plr1 unclickable"
-			svelte:prefetch 
-			href={ href( year ) }>
-			{year}
-		</a>
-	{/each}
+<nav class={`
+	flex 
+	ptb0-5
+	row-space-between-center 
+	bt1-solid 
+	bb1-solid 
+	wrap
+	`}>
+	<div class="flex row wrap">
+		{#each posts.years as year}
+			<a 
+				class="unclickable checkbox mtb0-5"
+				href={ href( year ) }>
+				<input type="checkbox" checked={ $page.path == href(year) } />
+				<span />
+				{year}
+			</a>
+		{/each}
+	</div>
+	<a class="bb1-solid button text-center ptb0-2 plr2 mtb0-5" href="">random</a>
 </nav>
 <slot />
 
 <ListView
-	data={ utilities.posts( data, $page.params.year ).data }
+	data={ posts.data }
 	{keys}
 	component={PostItem}>
 </ListView>

@@ -14,6 +14,25 @@
 	import LayoutTwoCol from '$lib/universal/LayoutTwoCol.svelte'
 	import LayoutTopBar from '$lib/universal/LayoutTopBar.svelte'
 
+	const darkKey = browser ? window.location.host + '-darkmode' : undefined
+
+	function initDark() {
+		let out = browser ? eval( window.localStorage.getItem( darkKey ) ) : undefined
+		if ( browser && out != true && out != false ) out = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || false
+		return out
+	}
+
+	let dark = initDark()
+
+	function onDarkChange( dark_ ) {
+		if (browser ) window.localStorage.setItem( darkKey, dark )
+	}
+	function clearDark() {
+		if (browser) window.localStorage.removeItem( darkKey )
+	}
+
+	$: onDarkChange( dark )
+
 	export let data
 
 
@@ -22,13 +41,12 @@
 
 </script>
 
-<main>
-
+<main class:dark={dark}>
 	{#if layout == 'two-col'}
 		<LayoutTwoCol>
 			<div slot="left" class="flex column-stretch-space-between grow">
 				<header>
-					<Header {...data} />
+					<Header {...data} bind:dark={dark} />
 				</header>
 				<Footer />
 			</div>
@@ -40,11 +58,11 @@
 
 		<LayoutTopBar>
 			<header slot="header" class="flex row-space-between-center">
-				<Header {...data} orientation="row" />
+				<Header {...data} bind:dark={dark} orientation="row" />
 			</header>
 
 				<!-- <Footer /> -->
-			<div slot="body" class="flex column-stretch-center grow">
+			<div slot="body" class="flex column-stretch-flex-start grow pt1">
 				<slot />
 			</div>
 		</LayoutTopBar>

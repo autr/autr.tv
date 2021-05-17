@@ -1,11 +1,10 @@
 <script context="module">
-	import api from '$lib/api.js'
 	export const load = async ({ fetch, page }) => {
-			const res = await fetch( `http://localhost:3000/api/autr/items/posts/${page?.params?.id}?depth=2`  )
-			let data = (await res.json())
-			if (res.ok) return { props: { data } }
-			const { message } = await res.json()
-			return { error: new Error(message) }
+		const res = await fetch( `http://localhost:3000/api/autr/items/posts/${page?.params?.id}?depth=2`  )
+		let data = (await res.json())
+		if (res.ok) return { props: { data } }
+		const { message } = await res.json()
+		return { error: new Error(message) }
 	}
 </script>
 <script>

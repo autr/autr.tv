@@ -36,7 +36,7 @@
 		class={columnClasses} 
 		on:scroll={ e => set( e, 'right') }>
 		<article class="w{right_}em maxw{right_}em justify-self-flex-start">
-			<slot name="right" />
+			<slot name="items" />
 		</article>
 	</div>
 </div>

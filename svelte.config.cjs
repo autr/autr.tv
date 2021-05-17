@@ -8,6 +8,11 @@ module.exports = {
 	kit: {
 		adapter: static(),
 		target: '#svelte',
-		ssr: false
+		ssr: false,
+		vite: () => ({
+			server: {
+				hmr: false
+			}
+		})
 	}
 }

@@ -1,0 +1,1 @@
+import{S as t,i as s,s as e,X as o,j as a,H as r}from"../chunks/vendor-23824d3e.js";function n(t){return{c(){this.h()},l(t){o('[data-svelte="svelte-ktil8w"]',document.head).forEach(a),this.h()},h(){document.title="Autr"},m:r,p:r,i:r,o:r,d:r}}const c=!0;export default class extends t{constructor(t){super(),s(this,t,null,n,e,{})}}export{c as prerender};
