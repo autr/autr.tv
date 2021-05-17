@@ -1,2 +1,2 @@
 . ~/.zshrc
-subl ./ ../ezapi ../ezipe ../eze ../ezeaze ../ezelte
+subl ./ ../ezapi ../ezipe ../eze ../ezeaze ./src/lib ../ezlib

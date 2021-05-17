@@ -5,18 +5,19 @@
     "node": ">=0.15"
   },
   "scripts": {
-    "dev": "svelte-kit --port 8888 dev & npm run sass",
-    "sass": "node-sass src/global.sass static/global.css -w",
-    "build": "svelte-kit build",
+    "dev": "pnpm run sassis && svelte-kit --port 8888 dev & npm run sass",
+    "sass": "node-sass src/global.sass static/global.css -w --output-style compressed",
+    "build": "svelte-kit build && pnpm run postbuild",
+    "sassis": "cp ../sassis/dist/all.min.css ./static/",
+    "postbuild": "purgecss --css ./static/all.min.css --content build/**/*.html --output ./build/ ",
     "preview": "svelte-kit preview",
     "start": "svelte-kit --port 8888 start"
   },
   "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.71",
-    "ezelte": "link:../ezelte",
+    "@sveltejs/kit": "next",
     "ezipe": "link:../ezipe",
-    "fetcheriser": "^1.0.5",
-    "rad-and-cool-light-dark-icon": "link:../rad-and-cool-light-dark-icon",
+    "fetcheriser": "^1.0.7",
+    "purgecss": "^4.0.3",
     "svelte": "^3.38.2",
     "vite": "^2.3.2"
   },
@@ -25,6 +26,7 @@
     "@fontsource/fira-mono": "^4.3.0",
     "@lukeed/uuid": "^2.0.0",
     "@sveltejs/adapter-static": "1.0.0-next.7",
+    "@vimeo/player": "^2.15.0",
     "cookie": "^0.4.1",
     "cross-fetch": "^3.1.4",
     "dayjs": "^1.10.4",

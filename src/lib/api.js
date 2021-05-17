@@ -2,7 +2,6 @@
 const api = {
 	get: ( url, index, whom ) => {
 		const func = (async ({ fetch, page }) => {
-			console.log('?????????0------------', page.params)
 			const fullUrl = url( page.params )
 			const res = await fetch( fullUrl )
 			let data = await res.json()

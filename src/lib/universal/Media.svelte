@@ -1,12 +1,16 @@
 <script>
+
+	import { scroll, centroid } from '$lib/universal/store.js'
 	import { onMount, onDestroy } from 'svelte'
 	import { amp, browser, dev, prerendering } from '$app/env'
 	import { getStores, navigating, page, session } from '$app/stores'
 	import { base, assets } from '$app/paths'
+	import Vimeo from '$lib/universal/Vimeo.svelte'
 
 	export let file
+	export let autohide = false // set to an id to enable
 	export let format = ''
-	export let active = false
+	export let hidden = autohide ? true : false
 	export let paused = true
 	export let autoplay = false
 	export let muted = true
@@ -20,7 +24,6 @@
 
 
 	let src, thumb
-	let syncing = false
 
 	const thumbnail = (url, o) => {
 
@@ -33,7 +36,7 @@
 	async function sync( file_ ) {
 
 
-		if (file) {
+		if (file?.basename && file?.location) {
 
 			dimensions( file )
 
@@ -42,10 +45,12 @@
 			const idx = basename.lastIndexOf('.')
 			const name = basename.slice( 0, idx )
 			const ext = basename.slice( idx )
+			let fmt = format
+			if (fmt?.length > 0) fmt = '.' + fmt
 
-			console.log(basename, location, idx, name, ext)
+			if (!is('image')) fmt = ''
 
-			src = location + name + format + ext
+			src = location + name + fmt + ext
 
 		}
 
@@ -53,9 +58,9 @@
 
 	$: sync( file )
 	$: title = file.title
-	$: alt = file.title
+	$: alt = ((file?.title || autohide || file?.basename) || '')
 
-	let width, height, ratio
+	export let width = null, height = null, ratio = null
 
 	function dimensions( file_ ) {
 		try {
@@ -94,6 +99,49 @@
 
 	const is = str => file.mime.indexOf(str) != -1
 
+	let el
+
+	function update( scroll_, centroid_ ) {
+
+		if (!browser || !autohide) return
+		const rect = el?.getBoundingClientRect() || {}
+		const TEST = autohide == 'moire-effekt-moire-moire-pattern-video-circuits-video-art-media-0'
+		const top = scroll_.itemsTop
+
+		if (browser) {
+			const offset = -window.innerHeight
+
+			const top = rect.y * -1 > rect.height - offset
+			const bottom = rect.y > window.innerHeight - offset
+			hidden = top || bottom
+
+			const ID = $centroid?.id || 'undefined-centroid'
+			const CENTER = $centroid?.center || 999999999
+
+			const center = Math.abs( ( rect.y + (rect.height / 2) ) - (window.innerHeight / 2) )
+
+			if ( autohide == ID && center != CENTER ) {
+				// console.log(`[PostItem] ☯️  updating centroid  "${autohide}" ${Math.random()}`)
+				$centroid = { center, id: autohide }
+			}
+
+			if ( center < CENTER && ID != autohide ) {
+				console.log(`[PostItem] ✨☯️✨  switching to new centroid "${autohide}" with size: ${width}/${height} (${ratio.toFixed(2)})`)
+				$centroid = { center, id: autohide }
+			}
+		}
+
+		// hidden = $centroid.id != autohide
+		// // hidden = false
+		paused = $centroid.id != autohide
+	}
+	$: update( $scroll, $centroid )
+
+	$: color = colors?.vibrant || 'var(--color)'
+	$: cross = `background-image: linear-gradient(to top left, transparent 0%, transparent calc(50% - var(--stroke-width)), ${color} 50%, transparent calc(50% + var(--stroke-width)), transparent 100%), linear-gradient(to top right, transparent 0%, transparent calc(50% - var(--stroke-width)), ${color} 50%, transparent calc(50% + var(--stroke-width)), transparent 100%);box-shadow:inset 0px 0px 0px 1px ${color}`
+
+
+	const pixel = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
 </script>
 
 <!-- 
@@ -119,36 +167,50 @@
 
 
 <span 
-	class="block rel w100pc {class_}"
+	bind:this={el}
+	class="media block rel w100pc {class_}"
 	data-width={width}
 	data-height={height}
 	data-ratio={ratio}
 	style={`
 		${style_};
-		line-height: 0px;
-		background-color:${colors?.vibrant || `#111`};
+		${cross};
 		
 	`}>
 		{#if is('image') }
 			<img 
-				class="w100pc h-auto"
+				class="embed fill w100pc h-auto"
+				class:active={!hidden}
 				{width}
 				{height} 
-				{src}
+				src={ hidden ? pixel : src }
 				{title} {alt}  />
 		{:else if is('video')} 
 			<video 
-				class="w100pc h-auto"
+				class="embed fill w100pc h-auto"
+				class:active={!hidden}
+				class:playing={!paused}
+				class:paused={paused}
 				{width}
 				{height} 
-				{src}
+				src={ hidden ? pixel : src }
 				{muted}
 				{autoplay}
 				{loop}
 				bind:paused={ paused }
-				preload="auto"
+				preload={ hidden ? 'none' : 'auto' }
 				controls={false}
 				poster={thumb}
 				{title} {alt}  />
+		{:else if is('vimeo')}
+			<Vimeo 
+				{...$$props} 
+				bind:width={width} 
+				bind:height={height} 
+				bind:ratio={ratio} />
 		{/if}
+		<img 
+			class="hidden w100pc h-auto"
+			{width}
+			{height} />
 </span>

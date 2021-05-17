@@ -23,11 +23,12 @@
 			if ( scroll_.itemsTop > scroll_.itemsHeight - (window.innerHeight * 1.5) ) {
 				const t = new Date()
 				if (t - timestamp > 500) {
-					count += max
+					// count += max
 					timestamp = t
 				}
 			}
 		}
+
 	}
 
 	let timeout, refresh
@@ -54,8 +55,12 @@
 <div 
 	class="flex column grow {class_}"
 	style={style_}>
-	<slot />
+	<slot name="body" />
 	{#each data.slice(0, count) as item, index}
 		{#if !refresh}<ListItem {index} {component} {keys} data={item} />{/if}
 	{/each	}
+	<footer>
+		<slot name="load-more" />
+		<slot name="back-to-top" />
+	</footer>
 </div>

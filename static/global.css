@@ -1,4 +1,1 @@
-html, body {
-  background: repeating-linear-gradient(10deg, var(--bg) 0px, var(--bg) 2px, var(--bg-pop) 2px, var(--bg-pop) 3px); 
-  letter-spacing: 0.06em;
-}
+html,body{background:repeating-linear-gradient(10deg, var(--bg) 0px, var(--bg) 2px, var(--bg-pop) 2px, var(--bg-pop) 3px);letter-spacing:0.05em}html .media,body .media{line-height:0px !important}html .media *,body .media *{line-height:0px !important}html .media .vimeo iframe,body .media .vimeo iframe{width:100%;height:100%;z-index:99;position:absolute}html .logo.light,body .logo.light{mix-blend-mode:multiply}html .logo.dark,body .logo.dark{filter:invert(1);mix-blend-mode:screen}

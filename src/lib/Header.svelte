@@ -1,8 +1,9 @@
 <script>
 
+	import { dark } from '$lib/rad-and-cool-icons/lib/stores.js'
 	import { page } from '$app/stores'
 	import Media from '$lib/universal/Media.svelte'
-	import RadCoolLightDarkIcon from 'rad-and-cool-light-dark-icon/lib/RadCoolLightDarkIcon.wc.svelte'
+	import { RadCoolLightDarkIcon } from '$lib/rad-and-cool-icons/lib'
 
 	export let title
 	export let subtitle
@@ -11,7 +12,6 @@
 	export let created
 	export let updated
 	export let orientation = 'column'
-	export let dark = false
 	
 	const menu = {
 		'Feed': '/feed',
@@ -47,14 +47,15 @@
 				sveltekit:prefetch href="/" class="rel unclickable">
 				<span class="f1 abs hidden">{title}</span>
 				<span 
-					class="minw120px maxw140px block"
-					style="filter:invert(1);mix-blend-mode:screen;">
-					<Media file={icon[0]} />
+					class:dark={$dark}
+					class:light={!$dark}
+					class="logo minw120px maxw140px block">
+					<Media file={ {...icon[0], title: 'autr.tv' }}  />
 				</span>
 			</a>
 		</h1> 
 	</div>
-	<div class="f1 italic maxw4em">{subtitle}</div>
+	<div class="f0 bold italic maxw4em">{subtitle}</div>
 </div>
 
 
@@ -75,7 +76,7 @@
 	{/each}
 	<a class="button text-center" href={`/subscribe`}>subscribe</a>
 	<RadCoolLightDarkIcon 
-		class="pointer" 
-		{...lightdark}
-		bind:dark={dark}  />
+		class="pointer"
+		color={ 'var(--color)'}
+		{...lightdark} />
 </div>

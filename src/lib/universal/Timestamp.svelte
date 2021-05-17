@@ -3,7 +3,7 @@
 	// import * as relativeTime from 'dayjs/plugin/relativeTime'
 
 	export let relative = false
-	export let format = 'DD-MM-YYYY-HH:mm'
+	export let format = 'D MMM, YYYY, dd'
 	export let date
 	// dayjs.extend( relativeTime )
 

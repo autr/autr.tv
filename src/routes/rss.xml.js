@@ -11,7 +11,6 @@ const xml = async e => {
 		return { error: new Error(message) }
 	}
 	let data = (await res.json()).filter( item => item.status == 'published' ).sort( (a,b) => b.date - a.date)
-	console.log('DATA', data.length)
 
 
 	return `<?xml version="1.0" encoding="UTF-8" ?>

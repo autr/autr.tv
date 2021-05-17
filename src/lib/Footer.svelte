@@ -24,7 +24,19 @@
     }
 </script>
 
-<div class="flex column cmt1">
+<div class="flex row-space-between-center">
+    <div>
+        autr.tv, { (new Date()).getFullYear() }, Gilbert Sinnott 
+    </div>
+    <div class="flex row-center-center cml1">
+        <a href="mailto:ping@autr.tv">ping@autr.tv</a>
+        <a href="/impressum">impressum</a>
+        <a href="/impressum">RSS</a>
+        <a href="/impressum">v2.0</a>
+    </div>
+</div>
+
+<!-- <div class="flex column cmt1">
     <div
         class:hidden={!active}
         class="align-self-flex-start plr1 radius1px filled"
@@ -49,4 +61,4 @@
             </a>
         {/each}
     </div>
-</div>
+</div> -->

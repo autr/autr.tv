@@ -1,0 +1,232 @@
+{
+  "id": "0",
+  "created": 1619640890,
+  "updated": 1621215139,
+  "title": "Autr",
+  "subtitle": "Gilbert Sinnott",
+  "icon": [
+    {
+      "dev": 16777223,
+      "mode": 33204,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 28979045,
+      "size": 130367,
+      "blocks": 256,
+      "atimeMs": 1619641754168.154,
+      "mtimeMs": 1579240472000,
+      "ctimeMs": 1619641751856.9512,
+      "birthtimeMs": 1579240472000,
+      "atime": "2021-04-28T20:29:14.168Z",
+      "mtime": "2020-01-17T05:54:32.000Z",
+      "ctime": "2021-04-28T20:29:11.857Z",
+      "birthtime": "2020-01-17T05:54:32.000Z",
+      "url": "/Users/gilbert/Code/tv/static/assets/autr.jpg",
+      "basename": "autr.jpg",
+      "name": "autr",
+      "extname": ".jpg",
+      "isDirectory": false,
+      "mime": "image/jpeg",
+      "unique_id": "28979045-1579240472000-1619641751856.9512",
+      "exif": [
+        {
+          "SourceFile": "/Users/gilbert/Code/tv/static/assets/autr.jpg",
+          "ExifToolVersion": 10.53,
+          "JFIFVersion": 1.01,
+          "XResolution": 96,
+          "YResolution": 96,
+          "ResolutionUnit": "inches",
+          "ModifyDate": "2020:01:17 17:54:33",
+          "ColorSpace": "sRGB",
+          "ExifImageWidth": 950,
+          "ExifImageHeight": 485,
+          "XMPToolkit": "XMP Core 5.5.0",
+          "ColorMode": "RGB",
+          "ICCProfileName": "sRGB IEC61966-2.1",
+          "MetadataDate": "2020:01:17 17:54:33+01:00",
+          "HistoryAction": "produced",
+          "HistorySoftwareAgent": "Affinity Photo (Sep 26 2019)",
+          "HistoryWhen": "2020:01:17 17:54:33+01:00",
+          "DisplayedUnitsX": "inches",
+          "DisplayedUnitsY": "inches",
+          "PhotoshopQuality": 12,
+          "PhotoshopFormat": "Standard",
+          "ProgressiveScans": "5 Scans",
+          "GlobalAngle": 120,
+          "GlobalAltitude": 30,
+          "HasRealMergedData": "Yes",
+          "WriterName": "Adobe Photoshop",
+          "ReaderName": "Adobe Photoshop",
+          "IPTCDigest": "d41d8cd98f00b204e9800998ecf8427e",
+          "PixelAspectRatio": 1,
+          "ProfileCMMType": "lcms",
+          "ProfileVersion": "4.3.0",
+          "ProfileClass": "Display Device Profile",
+          "ColorSpaceData": "RGB ",
+          "ProfileConnectionSpace": "XYZ ",
+          "ProfileDateTime": "2020:01:17 16:54:15",
+          "ProfileFileSignature": "acsp",
+          "PrimaryPlatform": "Apple Computer Inc.",
+          "CMMFlags": "Not Embedded, Independent",
+          "DeviceManufacturer": "",
+          "DeviceModel": "",
+          "DeviceAttributes": "Reflective, Glossy, Positive, Color",
+          "RenderingIntent": "Perceptual",
+          "ConnectionSpaceIlluminant": "0.9642 1 0.82491",
+          "ProfileCreator": "lcms",
+          "ProfileID": 0,
+          "ProfileDescription": "sRGB IEC61966-2.1",
+          "ProfileCopyright": "No copyright, use freely",
+          "MediaWhitePoint": "0.9642 1 0.82491",
+          "ChromaticAdaptation": "1.04788 0.02292 -0.05022 0.02959 0.99048 -0.01707 -0.00925 0.01508 0.75168",
+          "RedMatrixColumn": "0.43604 0.22249 0.01392",
+          "BlueMatrixColumn": "0.14305 0.06061 0.71391",
+          "GreenMatrixColumn": "0.38512 0.7169 0.09706",
+          "RedTRC": "(Binary data 32 bytes, use -b option to extract)",
+          "GreenTRC": "(Binary data 32 bytes, use -b option to extract)",
+          "BlueTRC": "(Binary data 32 bytes, use -b option to extract)",
+          "ChromaticityChannels": 3,
+          "ChromaticityColorant": "Unknown (0)",
+          "ChromaticityChannel1": "0.64 0.33",
+          "ChromaticityChannel2": "0.3 0.60001",
+          "ChromaticityChannel3": "0.14999 0.06",
+          "ImageSize": "950x485",
+          "Megapixels": 0.461
+        }
+      ],
+      "vibrant": {
+        "Vibrant": {
+          "rgb": [
+            183.6,
+            112.2,
+            71.4
+          ],
+          "population": 0
+        },
+        "DarkVibrant": {
+          "rgb": [
+            72,
+            44,
+            28
+          ],
+          "population": 2
+        },
+        "LightVibrant": {
+          "rgb": [
+            217.872,
+            180.744,
+            159.528
+          ],
+          "population": 0
+        },
+        "Muted": {
+          "rgb": [
+            114,
+            104,
+            107
+          ],
+          "population": 271
+        },
+        "DarkMuted": {
+          "rgb": [
+            76,
+            66,
+            67
+          ],
+          "population": 254
+        },
+        "LightMuted": {
+          "rgb": [
+            187,
+            185,
+            189
+          ],
+          "population": 39
+        }
+      },
+      "id": "assets/autr.jpg",
+      "location": {
+        "path": "/Users/gilbert/Code/tv/static/assets",
+        "name": "assets"
+      },
+      "title": "Autr",
+      "description": ""
+    }
+  ],
+  "bad-links": [
+    {
+      "model": "links",
+      "id": "autr-instagram",
+      "item": {
+        "href": "https://instagram.com/autr.tv",
+        "text": "Instagram",
+        "id": "autr-instagram",
+        "created": 1621204841,
+        "updated": 1621204841
+      }
+    },
+    {
+      "model": "links",
+      "id": "autr-facebook",
+      "item": {
+        "href": "https://facebook.com/autr.tv",
+        "text": "Facebook",
+        "id": "autr-facebook",
+        "created": 1621204795,
+        "updated": 1621204795
+      }
+    }
+  ],
+  "good-links": [
+    {
+      "model": "links",
+      "id": "autr-bandcamp",
+      "item": {
+        "href": "https://bandcamp.com/autr",
+        "text": "Bandcamp",
+        "id": "autr-bandcamp",
+        "created": 1621204765,
+        "updated": 1621204765
+      }
+    },
+    {
+      "model": "links",
+      "id": "autr-email",
+      "item": {
+        "href": "mailto:ping@autr.tv",
+        "text": "Email",
+        "id": "autr-email",
+        "created": 1621204867,
+        "updated": 1621204867
+      }
+    }
+  ],
+  "neutral-links": [
+    {
+      "model": "links",
+      "id": "autr-vimeo",
+      "item": {
+        "href": "https://vimeo.com/autr",
+        "text": "Vimeo",
+        "id": "autr-vimeo",
+        "created": 1621204782,
+        "updated": 1621204782
+      }
+    },
+    {
+      "model": "links",
+      "id": "autr-github",
+      "item": {
+        "href": "https://github.com/autr",
+        "text": "Github",
+        "id": "autr-github",
+        "created": 1621204822,
+        "updated": 1621204822
+      }
+    }
+  ],
+  "bio": "Gilbert Sinnott is a visual artist, video hacker and designer. \n\nBorn: Bristol UK, 1987\nLives: Berlin, since 2018"
+}

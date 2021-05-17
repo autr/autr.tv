@@ -1,8 +1,10 @@
 .DS_Store
 node_modules
 /.svelte
-/build/posts/*
+/build
 /functions
 static/posts/*
 pnpm-lock.yaml
 src/lib/ezelte
+src/lib/rad-and-cool-icons
+.svelte-kit

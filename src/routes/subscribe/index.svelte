@@ -1,7 +1,11 @@
+<script context="module">
+	export const prerender = false
+</script>
+
 <script>
 	import { onMount } from 'svelte'
 	import Title from '$lib/Title.svelte'
-	// import ListSignup from 'ezelte/lib/ListSignup.wc.svelte'
+	import { ListSignup } from '$lib/ezelte/lib'
 	const config = {
 		root: 'http://api.autr.tv',
 		user: 'autr',
@@ -19,16 +23,12 @@
 		]
 	}
 
-	let ListSignup
-
 	let vars = { artworks: true }
 
 	const sleep = ms => new Promise(f => setTimeout(f, ms));
 
 
 	onMount(async () => {
-		ListSignup = (await import('ezelte/lib/ListSignup.wc.svelte')).default
-		console.log(ListSignup)
 	})
 
 </script>
@@ -37,7 +37,7 @@
 	<div class="grow flex column-stretch-start no-basis">
 		<Title>Subscribe</Title>
 		<p class="ptb1"></p>
-		<svelte:component this={ListSignup} {...config} />
+		<ListSignup {...config} />
 	</div>
 	<div class="w4em" />
 	<div class="grow flex column-start-start  no-basis cmb1">

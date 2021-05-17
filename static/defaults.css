@@ -1,15 +1,14 @@
 :root {
-	--bg: hsl( 200, 10%, 8% );
-	--bg-pop: hsl( 200, 10%, 12% );
-	--bg-sink: hsl( 200, 10%, 2% );
+	--color: hsl( 200, 10%, 8% );
+	--color-bright: hsl( 200, 10%, 12% );
+	--color-fade: hsl( 200, 10%, 2% );
 
-	--color: hsl( 200, 10%, 90% );
-	--color-bright: hsl( 200, 10%, 100% );
-	--color-fade: hsl( 200, 10%, 50% );
+	--bg: hsl( 200, 10%, 90% );
+	--bg-pop: hsl( 200, 10%, 100% );
+	--bg-sink: hsl( 200, 10%, 50% );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+.dark {
 	--bg: hsl( 200, 10%, 8% );
 	--bg-pop: hsl( 200, 10%, 12% );
 	--bg-sink: hsl( 200, 10%, 8% );
@@ -17,7 +16,6 @@
 	--color: hsl( 200, 10%, 90% );
 	--color-bright: hsl( 200, 10%, 100% );
 	--color-fade: hsl( 200, 10%, 50% );
-  }
 }
 
 :root {
@@ -29,7 +27,7 @@
 	--input-padding: 0.6em 1em;
 	--button-padding: 1em 3em;
 
-	--font: sans-serif;
+	--font: soria, nouveau, sans-serif;
 	--font-monospace: monospace;
 	--font-serif: serif;
 	--font-sans-serif: sans-serif;
