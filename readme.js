@@ -17,6 +17,6 @@ IMAGES / VIDEO / MEDIA
 Gilbert Sinnott (g@sinnott.cc) © ${(new Date()).getFullYear()}
 `
 	await fs.writeFileSync( 'README.md', readme )
-	await fs.writeFileSync( 'static/LICENSE.md', media )
+	await fs.writeFileSync( 'static/LICENSE.txt', media )
 }
 run()
