@@ -36,7 +36,7 @@
 	<div class="flex grow column cmb1">
 		<Title>Mailing List</Title>
 		<p>
-			Email preferences can be set for artworks + news, code + open source projects, and personal stuff (c00L linkz, bicycles, etc).
+			Email preferences can be set for artworks / news, code and open source projects, and personal stuff (cool linkz, bicycles, etc).
 		</p>
 		<ListSignup  />
 	</div>

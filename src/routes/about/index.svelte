@@ -72,7 +72,7 @@
 		<div class="w0em sm-max-none" />
 		<nav class="{block}">
 			<Title>Contact</Title>
-			<p>I'm trying to communicate more outside of social media - emails welcomed! Mailing list for updates (as they come).</p>
+			<p>I'm trying to communicate less with social media - emails very much welcomed! Mailing list for updates (as they come).</p>
 			<a href="/subscribe" class="button text-center sm-max-100">subscribe to mailing list</a>
 			<Mail class="button text-center text-center sm-max-100" />
 		</nav>

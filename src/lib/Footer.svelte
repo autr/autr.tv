@@ -40,7 +40,7 @@
     const stylee = 'margin-top:-1px'
     const link = 'bb'
 
-    const button = 'ptb1 sm-max-grow sm-max-100' // b1-solid text-center 
+    const button = 'ptb1 sm-max-grow sm-max-100 unclickable bb' // b1-solid text-center 
     $: col = 'flex sm-max-100 grow no-basis wrap'
 
 </script>

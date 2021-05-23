@@ -15,11 +15,9 @@
 		let next = idx >= data.posts.length - 1 ? 0 : idx + 1
 		let random = Math.round( Math.random() * (data.posts.length - 1) )
 
-		console.log('A', {prev,next,random})
 		prev = { ...data.posts[prev], hyperlink: 'prev' }
 		next = { ...data.posts[next], hyperlink: 'next' }
 		random = { ...data.posts[random], hyperlink: 'random' }
-		console.log('B', {prev,next,random})
 
 		data = { post: data.post, prev, next, random }
 

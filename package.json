@@ -9,7 +9,7 @@
     "backup": "cp ~/Code/eze/db/autr.json ./backups/autr-$(date +%s).json",
     "dev": "node static/favicon.js && svelte-kit --port 8888 dev --host & npm run sass",
     "sass": "node-sass src/lib/styles/app.sass static/app.css -w ",
-    "build": "svelte-kit build && pnpm run postbuild && node readme.js",
+    "build": "svelte-kit build && pnpm run postbuild && node readme.js && cp -R static/* build",
     "postbuild": "purgecss --css ./build/app.css --content build/**/*.html --output ./build/ ",
     "preview": "svelte-kit preview",
     "start": "svelte-kit --port 8888 start",
