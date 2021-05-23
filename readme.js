@@ -11,6 +11,12 @@ BUILD
 
 Version: v${pkg.version}   
 Date: ${(new Date()).toISOString().substr(0, 10)}`
+	const media = `
+IMAGES / VIDEO / MEDIA
+=====================================
+Gilbert Sinnott (g@sinnott.cc) © ${(new Date()).getFullYear()}
+`
 	await fs.writeFileSync( 'README.md', readme )
+	await fs.writeFileSync( 'static/LICENSE.md', media )
 }
 run()
