@@ -12,7 +12,7 @@ echo $PACKAGE_VERSION
 
 git add -A
 
-git commit -m "$PACKAGE_VERSION"
+git commit -m "rebuild v$PACKAGE_VERSION"
 
 # git push origin "$tag"
 
