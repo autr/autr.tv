@@ -1,6 +1,6 @@
 #!/bin/sh
 
-npm version patch
+npm version patch --force
 
 PACKAGE_VERSION=$(cat package.json \
   | grep version \
