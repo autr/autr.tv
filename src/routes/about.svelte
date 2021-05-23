@@ -53,11 +53,14 @@
 	<div class="flex row wrap">
 		<article class="{block} ">
 			<Title>Bio</Title>
-			<pre class="whitespace-prewrap">{@html about.bio}</pre>
+			<pre class="whitespace-prewrap">
+				{@html about.bio}
+			</pre>
 		</article>
 		<div class="w10em sm-max-none" />
 		<nav class="{block}">
 			<Title>Contact</Title>
+			<p>I'm trying to communicate more outside of social media - emails always welcome! Mailing list for updates (as they come).</p>
 			<p>Textfiles always preferred instead of social-media! Ping me an email or subscribe to the mailing list for updates. </p>
 			<a href="/subscribe" class="button text-center sm-max-100">subscribe to mailing list</a>
 			<Mail class="button text-center filled text-center sm-max-100" />
@@ -97,6 +100,8 @@
 	<div class="about-media">
 		<Media file={about.cover[1]} {format} root="/pages/" class="" />
 	</div>
+
+	Y'olde RSS feed is available. Some decent RSS readers are NetNewsWire and maybe the latest Chrome (Canary)
 
 
 </div>

@@ -17,8 +17,10 @@
 	let posts = []
 
 	function filter( year ) {
-		// console.log('[feed] filtering into years')
 		posts = utils.posts( data.posts, $page.params.year )
+		posts.data = posts.data.filter( post => {
+			return post.status == 'published'
+		})
 		const idx = parseInt( Math.random() * (posts.data.length - 1) )
 		const item = posts.data[ idx ]
 		random = `/feed/${utils.year(item?.date)}/${item?.id}`

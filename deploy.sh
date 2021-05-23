@@ -1,8 +1,10 @@
 #!/bin/sh
 
-# pnpm run build
+rm -rf build
 
-# pnpm run postbuild
+pnpm run build
+
+pnpm run postbuild
 
 node readme.js
 
@@ -23,8 +25,6 @@ echo $PACKAGE_VERSION
 
 git add -A
 
-git commit -m "$PACKAGE_VERSION"
-
-# git push origin "$tag"
+git commit -m "$PACKAGE_VERSION $1"
 
 #git subtree push --prefix build origin gh-pages

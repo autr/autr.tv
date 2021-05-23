@@ -19,7 +19,7 @@
 
 	export let format = 'DD-MM-YYYY' // 'D MMM, YYYY, dd'
 
-	$: video = media.find( m => m.mime.indexOf('video') != -1) ? true : false
+	$: video = (media || []).find( m => m.mime.indexOf('video') != -1) ? true : false
 
 	$: icons = {
 		width: 35,

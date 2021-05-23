@@ -14,7 +14,7 @@ const posts = (items, y) => {
 		if ( !y ) return true
 		return year_ == parseInt( y ) 
 	})
-	data.sort( (a,b) => b.created - a.created )
+	data.sort( (a,b) => b.date - a.date )
 	years.sort( (a,b) => a - b )
 	years.push( 'all' )
 	years.reverse()
