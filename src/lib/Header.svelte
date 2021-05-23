@@ -15,7 +15,7 @@
 	
 	const menu = {
 		'Feed': '/feed',
-		'Works': '/works',
+		'Projects': '/works',
 		// 'About': '/about',
 		// 'Code': '/code',
 		// 'Downloads': '/downloads',
@@ -69,7 +69,7 @@
 
 <div 
 	id="mobile-header" 
-	class="w100pc t0 l0 md-min-none h5-2em z-index88"
+	class="w100pc t0 l0 sm-min-none h5-2em z-index80"
 	class:abs={$burger}>
 	<div 
 		class="w100vw plr1 pt1 grow">
@@ -100,14 +100,14 @@
 </div>
 
 <Close 
-	class="activ8 fixed md-min-none r1 t1-3 z-index99 b1-solid normal" 
+	class="activ8 fixed sm-min-none r1 t1-3 z-index81" 
 	bind:state={$burger} 
 	style={widthheight + 'margin-top:-1px'} 
-	invert={true}
+	invert={false}
 	on:click={e => $burger = !$burger} />
 
 <nav 
-	class="bg fill fixed flex column-stretch-stretch pt5-4 plr1 pb1 z-index77 rel"
+	class="bg fill fixed flex column-stretch-stretch pt5-4 plr1 pb1 z-index78 rel"
 	id="mobile-nav" 
 	class:none={!$burger}
 	style="top:-1px">
@@ -149,7 +149,7 @@
 	<a 
 		on:click={onClick}
 		href="/" 
-		class="activ8 unclickable flex wrap md-max-none row-start-center">
+		class="activ8 unclickable flex wrap sm-max-none row-start-center">
 		<div class="overflow-hidden" style="height:62px">
 			<Logo />
 		</div>
@@ -159,7 +159,7 @@
 	{#if !overlay}
 
 		<div 
-			class="flex wrap md-max-none row-start-center cml1">
+			class="flex wrap sm-max-none row-start-center cml1">
 
 			<!-- menu links -->
 
@@ -168,11 +168,11 @@
 					class="activ8 header-menu-link ptb0-2 block unclickable"
 					on:click={onClick}
 					href={url}
-					class:bb={ $page.path == url }>
+					class:bb={ $page.path == url || $page.path == '/' && url == '/feed' }>
 					{text}
 				</a>
 			{/each}
-			<a on:click={onClick} class="button text-center md-max-none" href={`/about`}>about</a>
+			<a on:click={onClick} class="button text-center sm-max-none" href={`/about`}>about</a>
 			<All
 				type="light-dark"
 				id="desktop"

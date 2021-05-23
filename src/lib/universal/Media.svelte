@@ -1,8 +1,6 @@
 <script>
-
 	import { cubicOut } from 'svelte/easing'
 	import { tweened } from 'svelte/motion'
-	import { base, assets } from '$app/paths'
 
 
 	import { scroll, centroid, autoplay, audio, eze } from './stores.js'
@@ -109,11 +107,8 @@
 				if (DEBUG) console.log('+++ C', {width, height, ratio, dim})
 			} else {
 				if (DEBUG) console.log('---D', {width, height,ratio,dim})
-				// width = 100
-				// height = 100
 				ratio = 1
 				if (DEBUG) console.log('+++D', {width, height,ratio,dim})
-				// error = `error with format "${fmt}" and dimensions ${dim.width}x${dim.height} ratio:${dim.ratio}`
 			}
 
 			notify( ratio, threshold )
@@ -153,7 +148,7 @@
 				posterSrc = join( [ root, name + fmt + ext ] )
 			}
 
-			// console.log('formatting to:', {vidSrc, posterSrc})
+			if (DEBUG) console.log('[media] formatted to:', {vidSrc, posterSrc})
 
 		}
 
@@ -209,15 +204,12 @@
 		
 		timeout = setTimeout( e => {
 
-			// centroid
-
 			const ID = $centroid?.id || 'undefined-centroid'
 			const CENTER = $centroid?.center || 999999999
 
 			const center = Math.abs( ( rect.y + (rect.height / 2) ) - (window.innerHeight / 2) )
 
 			if ( autohide == ID && center != CENTER ) {
-				// console.log(`[PostItem] ☯️  updating centroid  "${autohide}" ${Math.random()}`)
 				$centroid = { center, id: autohide, title: file.title }
 			}
 

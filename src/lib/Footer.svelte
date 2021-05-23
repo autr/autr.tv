@@ -2,6 +2,9 @@
     import { pkg } from '$lib/universal/stores.js'
     import { All } from '$lib/rad-and-cool-icons/lib'
     import Mail from '$lib/Mail.svelte'
+    import ListSignup from '$lib/ListSignup.svelte'
+    import Title from '$lib/Title.svelte'
+    import { page } from '$app/stores'
 
     export let social = {
         instagram: 'https://instagram.com/autr.tv',
@@ -37,12 +40,14 @@
     const stylee = 'margin-top:-1px'
     const link = 'bb'
 
-    const button = 'b1-solid text-center p1 plr2 bb sm-max-grow sm-max-100'
+    const button = 'ptb1 sm-max-grow sm-max-100' // b1-solid text-center 
     $: col = 'flex sm-max-100 grow no-basis wrap'
 
 </script>
 
-<div id="footer" class="flex row-space-between-center wrap m1 mt0 sm-max-column safari-only ">
+<div 
+    id="footer" 
+    class="flex bt row-space-between-center wrap m1 mt0 sm-max-column safari-only sm-max-none">
     <div class="{col} row-flex-start-center sm-max-column">
         <a style={stylee} class="{button}" href="/sitemap">sitemap</a>
         <span class="w1em" />
@@ -58,4 +63,13 @@
         <a style={stylee} class="{button}" href="/subscribe">mailing list</a>
     </div>
     
+</div>
+
+<div 
+    class:none={$page.path == '/subscribe'}
+    id="mobile-footer" 
+    class="plr1 flex column sm-max-100 sm-min-none safari-only">
+    <Title>Mailing list</Title>
+    <span class="h1em" />
+    <ListSignup />
 </div>

@@ -31,6 +31,7 @@
 	pkg.set({ ...data.pkg })
 	eze.set(  {
 		api: 'http://mac.local:3000/api/autr/',
+		editor: 'http://localhost:5000/autr/',
 		project: '/Users/gilbert/Code/tv/',
 		assets: '/static',
 		copy: dev || !browser

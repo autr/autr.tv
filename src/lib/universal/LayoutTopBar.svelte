@@ -27,7 +27,7 @@
     on:scroll={ e => set( e, 'items')} 
     class="bg flex w100vw h100vh overflow-auto" style="overflow-x: hidden">
     <div 
-        class="flex column-stretch-flex-start margin-auto sm-container h100vh grow maxw100vw">
+        class="flex column-stretch-flex-start margin-auto md-container h100vh grow maxw100vw">
         <slot name="header" />
         <slot name="subheader" />
         <slot name="body" />

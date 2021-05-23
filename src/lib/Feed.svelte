@@ -6,8 +6,9 @@
 
 	import ListView from '$lib/universal/ListView.svelte'
 	import ListSignup from '$lib/ListSignup.svelte'
+	import Title from '$lib/Title.svelte'
 	import PostItem from '$lib/PostItem.svelte'
-	import { goto } from '$app/navigation';
+	import { goto } from '$app/navigation'
 
 
 	export let data
@@ -119,7 +120,7 @@
 	<button 
 		slot="more" 
 		class="filled">more</button>
-	<a href="#top" slot="top" class="button flex row-center-center">
+	<a href="#top" slot="top" class="button flex row-center-center sm-max-100 mb0">
 		<All
 			type="arrow"
 			style="transform-origin: 50% 50%; transform: rotate(90deg);"
@@ -129,7 +130,4 @@
 			width={45 * 0.8}
 			height={45 * 0.8} />
 	</a>
-	<div slot="finished">
-		<ListSignup />
-	</div>
 </ListView>

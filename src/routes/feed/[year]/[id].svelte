@@ -4,20 +4,24 @@
 		const { year, id } = page.params
 
 
-		const data = await api.get( { post: `/posts~${id}.json` }, fetch )
+		let data = await api.get( { post: `/posts~${id}.json`, posts: `/posts.json` }, fetch )
 
-		// console.log(data.post)
-		// const idx = data.posts.find( item => item.id == data.post.id )
+		const idx = data.posts.indexOf( data.posts.sort( (a,b) => {
+			return b.date - a.date 
+		}).find( item => item.id == data.post.id ) )
 
-		// console.log(idx)
 
-	// function filter( year ) {
-	// 	console.log('[feed] filtering into years')
-	// 	posts = utils.posts( data.posts, $page.params.year )
-	// 	const idx = parseInt( Math.random() * (posts.data.length - 1) )
-	// 	const item = posts.data[ idx ]
-	// 	random = `/feed/${utils.year(item?.date)}/${item?.id}`
-	// }
+		let prev = idx == 0 ? data.posts.length - 1 : idx - 1
+		let next = idx >= data.posts.length - 1 ? 0 : idx + 1
+		let random = Math.round( Math.random() * (data.posts.length - 1) )
+
+		console.log('A', {prev,next,random})
+		prev = { ...data.posts[prev], hyperlink: 'prev' }
+		next = { ...data.posts[next], hyperlink: 'next' }
+		random = { ...data.posts[random], hyperlink: 'random' }
+		console.log('B', {prev,next,random})
+
+		data = { post: data.post, prev, next, random }
 
 		return { props: { data } }
 	}
@@ -25,6 +29,12 @@
 <script>
 	import { page } from '$app/stores'
 	import PostItem from '$lib/PostItem.svelte'
+	import PostMedia from '$lib/PostMedia.svelte'
+	import PostText from '$lib/PostText.svelte'
+	import utils from '$lib/universal/utils.js'
+	import PostControls from '$lib/PostControls.svelte'
+	import Close from '$lib/Close.svelte'
+	import Timestamp from '$lib/universal/Timestamp.svelte'
 	import { All } from '$lib/rad-and-cool-icons/lib'
 	import Header from '$lib/Header.svelte'
 	export let data
@@ -40,6 +50,7 @@
 	let random = 'fdssd'
 
 	$: post = data.post
+	$: links = [ data.prev, data.random, data.next ]
 
 	$: button = 'b1-solid flex row-center-center p1 grow'
 
@@ -49,22 +60,25 @@
 	<title>Autr | Feed {$page?.params?.year || ''} | {post.text}</title>
 </svelte:head>
 
-<!-- <nav id="feed-nav" class="flex  ptb0-5 row-stretch-center  bb  wrap">
-	<div class="flex row wrap rel grow w100pc">
-		<div class="align-self-flex-end grow flex row-flex-end-center">
-			<a href={random} class="unclickable ptb0-5">random</a>
-		</div>
+<div id="feed-item" class="mt1 flex column-center-start sm-container">
+	<div class="feed-item-media">
+		<PostMedia {...post} autohide={false} />
 	</div>
-</nav> -->
-<article class="ptb1 flex column-center-start">
-	<PostItem {...post} link={false}>
+	<PostText {...post} />
+	<nav id="feed-nav" class="mtb1 flex row-center-center sm-max-100">
+		<div class="flex row rel cptb0-5 sm-max-100">
 
-	</PostItem>
-	
-</article>
-
-
-			<!-- <span class="rel">
-				<All type="randomise" {...icons} />
-				<All type="randomise" {...icons} class="flipy fill" />
-			</span> -->
+			{#each links as link,i}
+				{#if i != 0}
+					<span class="w1em" />
+					<!-- <span class="h1em sm-min-none" /> -->
+				{/if}
+				<a 
+					class="button plr1 grow" 
+					href={`/feed/${utils.year(link.date)}/${link.id}`}>
+					{link.hyperlink}
+				</a>
+			{/each}
+		</div>
+	</nav>
+</div>

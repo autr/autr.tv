@@ -2,7 +2,6 @@
 
 	import PostMedia from '$lib/PostMedia.svelte'
 	import PostText from '$lib/PostText.svelte'
-	import { dev } from '$app/env'
 
 	export let id 
 	export let text
@@ -19,7 +18,6 @@
 	let orientation = false
 	
 
-	$: format = '996x0x95xfit'
 
 	
 </script>
@@ -32,12 +30,12 @@
 			<PostMedia 
 				bind:orientation={orientation}
 				{...$$props} 
-				autohide={true} 
-				{format} />
+				autohide={true}  />
 		</div>
 	</div>
 	<PostText {...$$props} />
 
 	<slot />
+
 	<div class="space h2em" />
 </div>

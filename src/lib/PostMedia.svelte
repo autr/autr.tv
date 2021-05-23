@@ -17,9 +17,8 @@
 	export let date 
 	export let status
 	export let autohide = false
-	export let format
+	export let format = '996x0x95xfit'
 	export let orientation
-
 
 
 	$: href = `/feed/${utils.year(date)}/${id}`

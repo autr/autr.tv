@@ -21,16 +21,16 @@
 }
 
 .dark {
-	--bg: hsl( 200, 10%, 8% );
+	--bg: hsl( 200, 10%, 10% );
 	--bg-pop: hsl( 200, 10%, 12% );
-	--bg-sink: hsl( 200, 10%, 8% );
+	--bg-sink: hsl( 200, 10%, 2% );
 
 	--color: hsl( 200, 10%, 90% );
 	--color-bright: hsl( 200, 10%, 100% );
 	--color-fade: hsl( 200, 10%, 50% );
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
 	:root {
 		--font-size: 16px;
 	}
