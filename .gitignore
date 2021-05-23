@@ -6,6 +6,7 @@ node_modules
 /tv-files
 /static/posts
 /static/pages
+/static/fonts
 pnpm-lock.yaml
 src/lib/ezelte
 src/lib/rad-and-cool-icons
