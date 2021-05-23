@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'soria';
+    src: url('/fonts/soria.eot');
+    src: url('/fonts/soria.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/soria.woff2') format('woff2'),
+        url('/fonts/soria.woff') format('woff'),
+        url('/fonts/soria.ttf') format('truetype'),
+        url('/fonts/soria.svg#soria') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

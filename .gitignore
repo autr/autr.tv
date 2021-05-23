@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+/.svelte
+/build
+/functions
+/tv-files
+/static/posts
+/static/pages
+pnpm-lock.yaml
+src/lib/ezelte
+src/lib/rad-and-cool-icons
+.svelte-kit

@@ -1,0 +1,36 @@
+{
+  "name": "tv",
+  "version": "1.0.2",
+  "engines": {
+    "node": ">=0.15"
+  },
+  "license": "GPL3",
+  "scripts": {
+    "backup": "cp ~/Code/eze/db/autr.json ./backups/autr-$(date +%s).json",
+    "dev": "node static/favicon.js && svelte-kit --port 8888 dev --host & npm run sass",
+    "sass": "node-sass src/lib/styles/app.sass static/app.css -w ",
+    "build": "svelte-kit build && pnpm run postbuild && node readme.js",
+    "postbuild": "purgecss --css ./build/app.css --content build/**/*.html --output ./build/ ",
+    "preview": "svelte-kit preview",
+    "start": "svelte-kit --port 8888 start",
+    "deploy": "pnpm run build && git push && ./deploy.sh"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "1.0.0-next.9",
+    "@sveltejs/kit": "1.0.0-next.107",
+    "@vimeo/player": "^2.15.0",
+    "color": "^3.1.3",
+    "cross-fetch": "^3.1.4",
+    "dayjs": "^1.10.4",
+    "ezipe": "link:../ezipe",
+    "fetcheriser": "^1.0.7",
+    "purgecss": "^4.0.3",
+    "svelte": "^3.38.2",
+    "vite": "^2.3.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "file-size": "^1.0.0",
+    "vite-aliases": "^0.6.3"
+  }
+}
